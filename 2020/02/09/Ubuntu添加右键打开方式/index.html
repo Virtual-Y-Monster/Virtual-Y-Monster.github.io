@@ -177,17 +177,7 @@
 <a id="more"></a>
 
 <h1 id="添加方法"><a href="#添加方法" class="headerlink" title="添加方法"></a>添加方法</h1><p>添加方法很简单，就是手动添加一个desktop文件在<code>/usr/share/applications/</code>下，例如<code>/usr/share/applications/java.desktop</code>，具体内容如下：  </p>
-<pre class="line-numbers language-code" data-language="code"><code class="language-code">[Desktop Entry]
-Name&#x3D;Java
-Comment&#x3D;Java
-GenericName&#x3D;Java
-Keywords&#x3D;java
-Exec&#x3D;java -jar %f
-Terminal&#x3D;false
-X-MultipleArgs&#x3D;false
-Type&#x3D;Application
-MimeType&#x3D;application&#x2F;x-java-archive
-StartupNotify&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name&#x3D;Java</span><br><span class="line">Comment&#x3D;Java</span><br><span class="line">GenericName&#x3D;Java</span><br><span class="line">Keywords&#x3D;java</span><br><span class="line">Exec&#x3D;java -jar %f</span><br><span class="line">Terminal&#x3D;false</span><br><span class="line">X-MultipleArgs&#x3D;false</span><br><span class="line">Type&#x3D;Application</span><br><span class="line">MimeType&#x3D;application&#x2F;x-java-archive</span><br><span class="line">StartupNotify&#x3D;true</span><br></pre></td></tr></table></figure>
 <p>这里附上常用的.desktop文件常用的关键词:  </p>
 <table>
 <thead>
@@ -263,15 +253,7 @@ StartupNotify&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span>
 <td align="center">如果是Link类型则必备</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-none"><code class="language-none">Exec常用的参数有：%f %F %u %U
-
-%f：单个文件名，即使选择了多个文件。如果已选择的文件不在本地文件系统中（比如说在HTTP或者FTP上），这个文件将被作为一个临时文件复制到本地，％f将指向本地临时文件
-
-%F：文件列表。用于程序可以同时打开多个本地文件
-
-%u：单个URL。本地文件以文件URL或文件路径的方式传递
-
-%U：URL列表 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Exec常用的参数有：%f %F %u %U</span><br><span class="line"></span><br><span class="line">%f：单个文件名，即使选择了多个文件。如果已选择的文件不在本地文件系统中（比如说在HTTP或者FTP上），这个文件将被作为一个临时文件复制到本地，％f将指向本地临时文件</span><br><span class="line"></span><br><span class="line">%F：文件列表。用于程序可以同时打开多个本地文件</span><br><span class="line"></span><br><span class="line">%u：单个URL。本地文件以文件URL或文件路径的方式传递</span><br><span class="line"></span><br><span class="line">%U：URL列表 </span><br></pre></td></tr></table></figure>
 <p>上述操作完成后，再右键.jar文件，打开方式中就能找到一个名为Java的打开方式了，把它设置为默认打开方式就可以啦<br>附上参考链接：<br><a target="_blank" rel="noopener" href="https://www.kutu66.com//ubuntu/article_156337">java如何通过双击来运行. jar 文件？</a><br><a target="_blank" rel="noopener" href="https://developer.gnome.org/desktop-entry-spec/#exec-variables">Desktop Entry Specification</a></p>
 <h1 id="未填的坑"><a href="#未填的坑" class="headerlink" title="未填的坑"></a>未填的坑</h1><p>虽然可以双击打开jar文件了，但是打开burp-loader-keygen.jar后，点击run，仍然没法打开burpsuite。如果用命令行打开后点击run就能打开burpsuite，我也没找出问题出在哪里，又懒得每次用命令行打开，所以在当前目录建立了一个burpsuite.sh文件，内容是<code>java -jar burp-loader-keygen.jar</code>，然后给脚本执行权限<code>chmod +x burpsuite.sh</code>,这样就可以每次双击它来运行。<br>PS 如果双击.sh文件没有执行而是打开了它，你需要改动它打开时的行为，方法：单击选中这个文件，点击文件管理器左上角的文件-首选项-行为，将<code>可执行文本文件</code>改为<code>运行</code>或<code>询问动作</code></p>
 
@@ -554,14 +536,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CTF</a>
               </li>
              
@@ -582,11 +556,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jupyter-lab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">server</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
